@@ -29,10 +29,10 @@ type BoundNode struct{
 type TreeNode struct{
 	degree int
 	bound []*BoundNode
-	parent Node //父亲节点
-	tail Node //中间节点
-	next Node //叶子节点的后驱指针
-	pre Node //叶子节点的前驱指针
+	parent Node
+	tail Node
+	next Node
+	pre Node
 }
 
 type KeyValue struct{
@@ -53,7 +53,6 @@ func (tree *Root) PrintTreeFinal(){
 			fmt.Print(" ",kv.key)
 		}
 		fmt.Print("]")
-		//fmt.Println("node.pre == nil",finalNode.pre==nil)
 		if finalNode.next !=nil{
 			finalNode = finalNode.next.(*TreeNode)
 		}else{
@@ -249,7 +248,6 @@ func (this *TreeNode) Split(node *TreeNode){
 		}
 	}
 
-	//insert new bound node
 	if pos+1==len(this.bound) && false == flag{
 		pos =len(this.bound)
 	}
